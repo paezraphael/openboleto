@@ -94,12 +94,11 @@ class Bradesco extends BoletoAbstract
      *
      * @return string
      */
-    public function getCampoLivre()
-    {
+    public function getCampoLivre(){
         return static::zeroFill($this->getAgencia(), 4) .
             static::zeroFill($this->getCarteira(), 2) .
-            substr($this->getNossoNumero(false),2) .
-            static::zeroFill($this->getConta(), 6) .
+            substr(substr($this->getNossoNumero(false),2),0,-1) .
+            static::zeroFill($this->getConta(), 8) .
             '0';
     }
 
